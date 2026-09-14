@@ -64,7 +64,7 @@ stdenv.mkDerivation {
     install -Dm644 usr/share/applications/grok-bot.desktop \
       "$out/share/applications/grok-bot.desktop"
     substituteInPlace "$out/share/applications/grok-bot.desktop" \
-      --replace-fail '"/opt/Grok Bot/grok-bot"' "grok-bot"
+      --replace-fail 'Exec=grok-bot %U' "Exec=$out/bin/grok-bot %U"
 
     runHook postInstall
   '';
